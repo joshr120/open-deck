@@ -5,7 +5,7 @@
 ## -
 
 # Open Deck
-![Open Deck Image](Home_img.jpg)
+![Open Deck Image](images/Image 1.jpg)
 Open Deck is a low cost open source macro keyboard with a customizable image behind every key.
 
 Open Deck is an open source macro keyboard designed to be a cheaper alternative to the stream deck. It has software to easily change the images as well as the macros assigned to each button. The folder Structure allows 6 different apps to be configured with 3 macro keys each. The software allows the open deck to update with whatever app is open as well as open an app when buttons are pressed.
@@ -16,7 +16,7 @@ Full Video and build guide here:
 
 # Software:
 # **GUI Interface (.exe)**
-![GUI Image](gui.jpg)
+![GUI Image](images/gui.jpg)
 
 Provided is a compiled .exe program as well as all the source code (written in python)
 
