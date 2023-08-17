@@ -1,11 +1,14 @@
 # TODO:
 ### - Make Video
 ### - BOM
+### - STEP Files of CNC Parts
 
 
 # Open Deck
 
-## Parts and fully assembled units can be purchased Here: LINK
+## Parts and fully assembled units can be purchased Here: https://www.tindie.com/products/27756/  
+<br>
+
 
 
 <img src="Images/Image_1.jpg" width="400">⠀⠀⠀⠀⠀⠀⠀<img src="Images/Image_2.jpg" width="400">
@@ -24,11 +27,13 @@ The sofware is still evolving and I am by no means a software engineer but all o
 
 <img src="Images/gui.jpg" width="400">
 
+
+Provided is a compiled .exe program as well as all the source code (written in python). Extract the zipped folder and run the .exe, no python libary installs required.
+
+
 The Open Deck communicates with a PC over a serial USB connection. The software can automatically detect and connect to the Open Deck when it is plugged in.
 
 The program is first used to upload images and set the macro's. After that it runs in the background to send keystrokes when the buttons are pressed.
-
-Provided is a compiled .exe program as well as all the source code (written in python)
 
 Note: the automatic window switching only works on windows currently
 
@@ -58,7 +63,7 @@ All of the code running on the ESP8266 on the Open Deck itself is using arduino.
 When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
 # Hardware
-See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit. LINK
+See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: https://www.tindie.com/products/27756/  
 
 Things of Note:
 
