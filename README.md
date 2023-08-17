@@ -25,21 +25,19 @@ Note: the automatic window switching only works on windows currently
 written in python and uses the customtkinter interface for displaying the gui
 
 # Uploading Images
-Final imges are 48x72? pixels stored as a bitmap. The files can be any size and any colour the program does all of the conversion for you. At the moment each image can only be a single colour.
+Final imges are 48x72? pixels stored as a bitmap. The files can be any size and the program does all of the conversion for you. At the moment each image can only be a single colour when uploaded through the GUI. When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. See Additional Features section for how to do images with multiple colours.
 
-The select & upload button will prompt the user to select an image from the file system as well as choose a colour from a colour picker
-
-When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. Threshold???
+The select & upload button will prompt the user to select an image from the file system as well as choose a colour from a colour picker.
 
 the last 3 bytes od the message sent over serial contain the RGB colour of the icon.
 
 # Setting Macros
 The macros are sent using the python keyboard library.
 
-If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key.
+If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here)
 
 # Window Switching/application setup
-One usefull frature on the open deck has is the ability to have the buttons change depending on which application is currently open as well as open an app when a button on the open deck is pressed.
+One usefull feature on the open deck has is the ability to have the buttons change depending on which application is currently open as well. It can also open an app when a button on the open deck is pressed.
 
 By inputting the application name for each menu of the open deck, the program will look for a window containing this name to either control the open deck or have the open deck control/activate this window.
 
