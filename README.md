@@ -19,6 +19,7 @@ An easy to use interface allows you to easily upload and set macros.
 Full Video and build guide here:
 
 # Software:
+The sofware is still evolving and I am by no means a software engineer but all of the functionality is there. 
 ## GUI Interface
 
 <img src="Images/gui.jpg" width="400">
@@ -51,18 +52,17 @@ By inputting the application name for each menu of the open deck, the program wi
 On windows there are 3 settings for automatically switching windows and/or current open deck state.
 
 
+## Arduino
+All of the code running on the ESP8266 on the Open Deck itself is using arduino. The images are stored as a bitmap in SPIFFS so that they remain after a power cycle and are not relient on a computer connection.
 
-# Arduino
-Esp8266 all images stored in spiffs.
-
-When a key is pressed it send it correlated number (1-16) over serial to the program running on the computer. 
+When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
 # Hardware
-See the BOM for a full list of all of the required components.
+See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit. LINK
 
 Things of Note:
 
-- The display is a 128x160 tft display. The exact display is quite important as the hole patten and pinout needs to fit the custom PCB's.
+- The display is a 128x160 tft display. The exact display is quite important as the hole patten and pinout needs to fit the custom PCB's. (See BOM for Link)
 
 - An ESP8266 is being used as the micro-controller as it is small, low cost, has enough flash memory to store all of the images as well as having WiFi to allow for additional features. Importantly for everything to fit this needs to be a WEMOS D1 Mini V4 with a USB-C Connector
 
