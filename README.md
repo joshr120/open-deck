@@ -1,9 +1,3 @@
-# TODO:
-### - Make Video
-### - BOM
-### - STEP Files of CNC Parts
-
-
 # Open Deck
 
 ## Parts and fully assembled units can be purchased Here: https://www.tindie.com/products/27756/  
@@ -96,7 +90,7 @@ Spacer:
 
 ## CNC Machined Parts
 ### Carbon Fibre Top Plate
-The carbon top plate is made out of 1mm thock carbon fibre. Chamfers improve the look while allowing the countersunk screws the be flush with the surface
+The carbon top plate is made out of 1mm thick carbon fibre. Chamfers improve the look while allowing the countersunk screws the be flush with the surface.
 
 ### Acrylic Key Caps
 The 'Key Caps' are machined out of 4.5mm thick acrylic. They are all the same design.
@@ -115,3 +109,11 @@ Another use case for the open deck is to control smart home deviced. The ESP8266
 Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something like home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device so will remain even after a power cycle.
 
 If you want images with multiple colours these currently need to be manually entered into the arduino code. The python file called image uploader will output the correct bitmap which can be used in the arduino code. One image will needed to be made for each colour in the image. A pre-made example of this can be uncommented for a chrome logo. Final imges are 48x72 pixels stored as a bitmap. the last 3 bytes od the message sent over serial contain the RGB colour of the icon.
+
+<br>
+<br>
+
+# TODO:
+### - Make Video
+### - BOM
+### - STEP Files of CNC Parts
