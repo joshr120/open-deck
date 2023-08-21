@@ -16,14 +16,13 @@ An easy to use interface allows you to easily upload and set macros.
 Full Video and build guide here:
 
 # Software:
-The sofware is still evolving and I am by no means a software engineer but all of the functionality is there. 
+The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
+
 ## GUI Interface
 
 <img src="Images/gui.jpg" width="400">
 
-
 Provided is a compiled .exe program as well as all the source code (written in python). Extract the zipped folder and run the .exe, no python libary installs required.
-
 
 The Open Deck communicates with a PC over a serial USB connection. The software can automatically detect and connect to the Open Deck when it is plugged in.
 
@@ -41,7 +40,7 @@ The select & upload button will prompt the user to select an image from the file
 ## Setting Macros
 The macros are sent using the python keyboard library.
 
-If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here)
+If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here). To send multiple key stroked one after another seperate them with a comma. The record keystroke feature is still a work in progress but should be able to get you started.
 
 ## Window Switching/application setup
 One usefull feature on the open deck has is the ability to have the buttons change depending on which application is currently open as well. It can also open an app when a button on the open deck is pressed.
@@ -50,6 +49,11 @@ By inputting the application name for each menu of the open deck, the program wi
 
 On windows there are 3 settings for automatically switching windows and/or current open deck state.
 
+- The first option will open the application on the computer when the corresponding folder is opened on the keypad.
+
+- The second option will open the corresponding computer application when a shortcut is sent. This is usefull if you have multiple applciations open at once as it will make the correct application active before sending the keystrokes.
+
+- The third option will change which set of macros are shown on the keypad depending on which computer application is currently active.
 
 ## Arduino
 All of the code running on the ESP8266 on the Open Deck itself is using arduino. The images are stored as a bitmap in SPIFFS so that they remain after a power cycle and are not relient on a computer connection.
@@ -114,6 +118,7 @@ If you want images with multiple colours these currently need to be manually ent
 <br>
 
 # TODO:
-### - Make Video
-### - BOM
-### - STEP Files of CNC Parts
+
+>### - BOM
+>### - STEP Files of CNC Parts
+>### - DEFAULT CODE (images and macros)

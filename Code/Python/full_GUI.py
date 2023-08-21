@@ -23,12 +23,6 @@ from threading import *
 
 # import matplotlib.pyplot as plt
 
-
-#trying pyinstaller (pickle file should be created after first run)
-# pyinstaller --noconfirm --onedir --console --add-data "C:/Users/Josh/AppData/Local/Programs/Python/Python310/Lib/site-packages/customtkinter;customtkinter/"  "C:/Users/Josh/Desktop/3d Printer Files/Macro Keyboard/full_GUI.py"
-# python -m PyInstaller --noconfirm --onedir --windowed --noconsole --add-data "C:/Users/Josh/AppData/Local/Programs/Python/Python310/Lib/site-packages/customtkinter;customtkinter/"  "C:/Users/Josh/Desktop/3d Printer Files/Macro Keyboard/full_GUI.py"
-# python -m PyInstaller --noconfirm --onedir --windowed --noconsole --icon "C:/Users/Josh/Desktop/3d Printer Files/Macro Keyboard/Logo/icon.ico" --add-data "C:/Users/Josh/AppData/Local/Programs/Python/Python310/Lib/site-packages/customtkinter;customtkinter/"  "C:/Users/Josh/Desktop/3d Printer Files/Macro Keyboard/full_GUI.py"
-
 # open a pickle file
 filename = 'data.pk'  #pickle file to save the data
 
@@ -383,8 +377,6 @@ def imgPicker():
 def imgSender(file_path, image, border, colors):
     global ser
     #print(image)
-    #manual path (not used anymore)
-    #path = r'C:\Users\Josh\Desktop\3d Printer Files\Macro Keyboard\Icons\insta.jpg'
 
     #################################
     # convert colours to byte array #
