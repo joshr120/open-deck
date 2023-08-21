@@ -1,5 +1,5 @@
 
-<img src="Images/logo.png" width="500">
+<img src="Images/Logo.png" width="500">
 
 # Open Deck
 
