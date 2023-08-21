@@ -1,8 +1,10 @@
+
+<img src="Images/logo.png" width="500">
+
 # Open Deck
 
 ## Parts and fully assembled units can be purchased Here: https://www.tindie.com/products/27756/  
 <br>
-
 
 
 <img src="Images/Image_1.jpg" width="400">⠀⠀⠀⠀⠀⠀⠀<img src="Images/Image_2.jpg" width="400">
@@ -29,8 +31,6 @@ The Open Deck communicates with a PC over a serial USB connection. The software 
 The program is first used to upload images and set the macro's. After that it runs in the background to send keystrokes when the buttons are pressed.
 
 Note: the automatic window switching only works on windows currently
-
-written in python and uses the customtkinter interface for displaying the gui
 
 ## Uploading Images
 The PC application makes it super easy to upload images. The files can be any size and the program does all of the conversion for you. At the moment each image can only be a single colour when uploaded through the GUI. When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. See Additional Features section for how to do images with multiple colours.
@@ -62,6 +62,8 @@ When a key is pressed it sends a correlated number (1-16) over serial to the pro
 
 # Hardware
 See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: https://www.tindie.com/products/27756/  
+
+> If there is a particular item or set of items you would like to buy feel free to send me a message on Tindie.
 
 Things of Note:
 
@@ -119,6 +121,4 @@ If you want images with multiple colours these currently need to be manually ent
 
 # TODO:
 
->### - BOM
->### - STEP Files of CNC Parts
 >### - DEFAULT CODE (images and macros)
