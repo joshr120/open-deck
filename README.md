@@ -61,7 +61,7 @@ All of the code running on the ESP8266 on the Open Deck itself is using arduino.
 When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
 # Hardware
-See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: https://www.tindie.com/products/27756/  
+See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: **https://www.tindie.com/products/27756/**
 
 > If there is a particular item or set of items you would like to buy feel free to send me a message on Tindie.
 
@@ -122,3 +122,6 @@ If you want images with multiple colours these currently need to be manually ent
 # TODO:
 
 >### - DEFAULT CODE (images and macros)
+>### - Foam Pictures / Video
+>### - Stencil/Stickers?
+>### - Final Window Sizing
