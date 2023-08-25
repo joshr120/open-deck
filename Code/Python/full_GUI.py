@@ -34,12 +34,6 @@ val = b''
 
 prevPort = "Select"
 
-#varibles for toggle switches
-#first:     for menu change opens computer app 
-#Second:    for Macro Button Opens Computer App
-#Third:     for Deck updates with computer window change
-
-#4th:     auto connect
 switchStates = ["off", "on", "on", "on"]
 
 customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
@@ -51,7 +45,7 @@ HOME_OPTIONS = ["App 1", "App 2", "App 3", "App 4", "App 5", "App 6"]
 
 OPTIONS = [ "Home 1","Home 2","Home 3","Home 4","Home 5","Home 6","Menu 1","Menu 2","Menu 3","Menu 4","Menu 5","Menu 6","Menu 7","Menu 8","Menu 9","Menu 10","Menu 11","Menu 12","Menu 13","Menu 14","Menu 15","Menu 16","Menu 17","Menu 18"]
 
-   #remove this in future and just edit name (current way is dumb, just for testing)
+#remove this in future and just edit name (current way is dumb, just for testing)
 name_dict = { "Home 1": b'home_1\n',"Home 2": b'home_2\n',"Home 3": b'home_3\n',"Home 4": b'home_4\n',"Home 5": b'home_5\n',"Home 6": b'home_6\n',"Menu 1": b'menu_1\n',"Menu 2": b'menu_2\n',"Menu 3": b'menu_3\n',"Menu 4": b'menu_4\n',"Menu 5": b'menu_5\n',"Menu 6": b'menu_6\n',"Menu 7": b'menu_7\n',"Menu 8": b'menu_8\n',"Menu 9": b'menu_9\n',"Menu 10": b'menu_10\n',"Menu 11": b'menu_11\n',"Menu 12": b'menu_12\n',"Menu 13": b'menu_13\n',"Menu 14": b'menu_14\n',"Menu 15": b'menu_15\n',"Menu 16": b'menu_16\n',"Menu 17": b'menu_17\n',"Menu 18": b'menu_18\n'}
 
 
@@ -68,9 +62,6 @@ key_dict = {
 10:[['ctrl+shift+esc'], "Task Manager"],
 11:[['alt+tab'], "alt tab"],
 12:[['windows+shift+s'], "Snipping Tool"],
-# 13:[['volume down'], "Vol Down"],
-# 14:[['volume up'], "Vol Up"],
-# 15:[['volume mute'], "Mute"],
 13:[['ctrl+r'], "Mid Rect"],
 14:[['ctrl+a'], "Arc"],
 15:[['ctrl+f'], "Chamfer"],
@@ -478,8 +469,6 @@ def imgSender(file_path, image, border, colors):
         packet = bytearray()
         packet = outputArray
         ser.write(packet)
-        #colour = [33,150,255]
-        #colour = [0,255,0]
         time.sleep(0.2)
         ser.write(colour)
         #time.sleep(0.5)
@@ -657,31 +646,10 @@ butNumLabel.configure(font=("Arial", 10))
 
 
 ###################################
-#          While loop
+#          Threading (actually running everything)
 ###################################
 
-#Better way to do all this is with threading
-
-
-#faster but error on exit
-# while (True):                     #this method runs smoother but throws an error on exit
-#     app.update_idletasks()
-#     app.update()
-#     updatePorts()  #updates port list and handle serial connection
-#     runMacros()    #function to detect all key presses and window switching
-
-
-#slower but no errors
-# def tick():
-#     # print("in self")
-#     updatePorts()  #updates port list and handle serial connection
-#     runMacros()    #function to detect all key presses and window switching
-#     app.after(100, tick)  #how ofter to call everything (50 may be too fast)
-# tick()
-# app.mainloop() #replaced by while loop above
-
-
-#Attempting using threading
+#Using threading to display GUI and send macros at same time (May be use a fair amout of memory on a slow computer)
 def threading():
     # Call work function
     t1=Thread(target=work)
@@ -694,5 +662,5 @@ def work():
 
 stop = False
 threading()
-app.mainloop() #replaced by while loop above
+app.mainloop()
 stop = True
