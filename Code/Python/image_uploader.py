@@ -94,9 +94,6 @@ def imgPicker():
 #         Send Images        #
 ##############################
 def imgSender(file_path, image, border, colors):
-    #print(image)
-    #manual path (not used anymore)
-    #path = r'C:\Users\Josh\Desktop\3d Printer Files\Macro Keyboard\Icons\insta.jpg'
 
     #################################
     # convert colours to byte array #
@@ -197,8 +194,6 @@ def imgSender(file_path, image, border, colors):
     packet = bytearray()
     packet = outputArray
     ser.write(packet)
-    #colour = [33,150,255]
-    #colour = [0,255,0]
     time.sleep(0.2)
     ser.write(colour)
     #time.sleep(0.5)
@@ -255,17 +250,14 @@ for port, desc, hwid in sorted(ports):
     #COMports.append(port)
 
 topLabel = customtkinter.CTkLabel(master=frame_1, justify=tkinter.LEFT, text="Upload Images")
-#topLabel.pack(pady=(12,0), padx=10)
 topLabel.grid(row=0, column=0, columnspan=2, padx=20, pady=10, sticky="ew")
 topLabel.configure(font=("Arial", 25))
 
 
 portLabel = customtkinter.CTkLabel(master=frame_1, justify=tkinter.LEFT, text="Select Port:")
-#portLabel.pack(pady=(12,0), padx=10)
 portLabel.grid(row=1, column=0, columnspan=1, padx=0, pady=10, sticky="e")
 
 portSelect = customtkinter.CTkComboBox(frame_1, values=COMports)
-#portsSelect.pack(pady=0, padx=10)
 portSelect.grid(row=1, column=1, columnspan=1, padx=0, pady=10, sticky="w")
 
 #auto port connect
@@ -276,26 +268,21 @@ for port, desc, hwid in sorted(ports):
         portSelect.set(port)
 
 baudLabel = customtkinter.CTkLabel(master=frame_1, justify=tkinter.LEFT, text="Select Baud Rate:")
-#baudLabel.pack(pady=(8,0), padx=10)
 baudLabel.grid(row=2, column=0, columnspan=1, padx=20, pady=10, sticky="e")
 
 baudSelect = customtkinter.CTkComboBox(frame_1, values=["9600", "115200"])
-#baudSelect.pack(pady=0, padx=10)
 baudSelect.grid(row=2, column=1, columnspan=1, padx=0, pady=10, sticky="w")
 baudSelect.set("115200")
 
 label_1 = customtkinter.CTkLabel(master=frame_1, justify=tkinter.LEFT, text="Choose Item to Update")
-#label_1.pack(pady=(15,5), padx=10)
 label_1.grid(row=3, column=0, columnspan=2, padx=20, pady=(30,10), sticky="ew")
 label_1.configure(font=("Arial", 12))
 
 combobox_1 = customtkinter.CTkComboBox(frame_1, values=OPTIONS)
-#combobox_1.pack(pady=2, padx=10)
 combobox_1.grid(row=4, column=0, columnspan=2, padx=80, pady=10, sticky="ew")
 combobox_1.set("Home 1")
 
 button_1 = customtkinter.CTkButton(master=frame_1, command=button_callback, text="Select & Upload")
-#button_1.pack(pady=12, padx=10)
 button_1.grid(row=5, column=0, columnspan=2, padx=80, pady=10, sticky="ew")
 
 app.mainloop()
