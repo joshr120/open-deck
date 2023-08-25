@@ -60,6 +60,9 @@ All of the code running on the ESP8266 on the Open Deck itself is using arduino.
 
 When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
+If you purchase a pre-made Open Deck it will come flashed with the default firmware and you will not need to touch any arduino code or install any libraries. 
+> For more info on the software see the README in the Code folder
+
 # Hardware
 See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: **https://www.tindie.com/products/27756/**
 
@@ -110,11 +113,11 @@ These could also potentially be SLA 3D printed from clear resin and polished to 
 The PCB folder contains a zipped folder of the GERBER files required to have the PCB manufactured.
 
 # Additional Features:
-Another use case for the open deck is to control smart home deviced. The ESP8266 is a common wifi chip and could be setup for automations without needing to be connected to a host computer. 
+- If you want images with multiple colours these currently need to be manually entered into the arduino code. See the README in the Code folder for more info.
 
-Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something like home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device so will remain even after a power cycle.
+- Another use case for the open deck is to control smart home devices. The ESP8266 is a common WiFi chip and could be setup for controlling without needing to be physically connected to a host computer. 
 
-If you want images with multiple colours these currently need to be manually entered into the arduino code. The python file called image uploader will output the correct bitmap which can be used in the arduino code. One image will needed to be made for each colour in the image. A pre-made example of this can be uncommented for a chrome logo. Final imges are 48x72 pixels stored as a bitmap. the last 3 bytes od the message sent over serial contain the RGB colour of the icon.
+  Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something like home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device in non-volatile memory so will remain even after a power cycle.
 
 <br>
 <br>
@@ -123,5 +126,5 @@ If you want images with multiple colours these currently need to be manually ent
 
 >### - DEFAULT CODE (images and macros)
 >### - Foam Pictures / Video
->### - Stencil/Stickers?
+>### - Stencil
 >### - Final Window Sizing
