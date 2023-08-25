@@ -305,7 +305,7 @@ void screenUpdate() {
 //      tft.drawBitmap(0,0,chrome_y, 54, 70, ST77XX_YELLOW);
       /////////              END              //////////
 
-      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);  //comment out this line to use chrom mulit-colour example
+      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);  //comment out this line to use chrome mulit-colour example
       tft.drawBitmap(74,0,homes[2], 54, 70, homeColours[2]);
       tft.drawBitmap(0,90,homes[3], 54, 70, homeColours[3]);
       
