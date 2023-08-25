@@ -16,14 +16,6 @@
 #define TFT_DC     D2
 
 
-////////////////////
-//   ORIG BOARD   //
-////////////////////
-//#define TL D4
-//#define BL D1
-//#define TR D0
-//#define BR A0
-
 
 ////////////////////////////
 //   PCB SMALL BUTTONS    //
@@ -32,12 +24,6 @@
 #define BL A0 //D4!!!!!!!!!!
 #define TR D1
 #define BR D4
-
-//NEW  PREV
-//TL = BR (D0)
-//TR = TL (D1)
-//BL = TR (A0 - ADC)
-//BR = BL (D4)
 
 
 // For 1.44" and 1.8" TFT with ST7735 use
@@ -76,19 +62,11 @@ void setup(void) {
 
   tft.setRotation(2);  //invert diaply orientation
 
-  //Serial.println(sizeof(photoshop));
-
   readFromSpiffs();
 
 }
 
 void loop() {
-
-    //NEW  PREV
-    //TL = BR
-    //TR = TL
-    //BL = TR (ADC)
-    //BR = BL
 
     bool TLState = digitalRead(TL);
     bool BRState = digitalRead(BR);
@@ -96,13 +74,6 @@ void loop() {
     int BLVal = analogRead(BL);
 
     bool BLState = (BLVal>500);
-
-//    Serial.print("TL:"); Serial.print(TLState);
-//    Serial.print(" BR:"); Serial.print(BRState);
-//    Serial.print(" TR:"); Serial.print(TRSt,ate);
-//    Serial.print(" BL:"); Serial.println(BLVal);
-//    Serial.print(" BLState:"); Serial.println(BLState);
-    
 
     //page 1
     if (pageState == 1 && !TLState){  //top left page 1
@@ -304,17 +275,13 @@ void loop() {
       while(!BRState){ BRState = digitalRead(BR);delay(10);}
       tft.drawBitmap(74,90,menus[18], 54, 70, menuColours[18], ST77XX_BLACK);
     }
-
-//    Serial.print("PageState:"); Serial.print(pageState);
-//    Serial.print("  LastPageState:"); Serial.print(pageState);
-//    Serial.print("  MenuState:"); Serial.println(menuState);
     
     screenUpdate();
 
     //received serial data so call function to read the imcomming data and save it to spiffs
     if (Serial.available() > 0) {
       imageImport();  //received serial 
-      //force refresh because of weird behav of "button press" when serial receive (need to properly fix this)
+      //force refresh because of weird behav of "button press" when serial receive (May be fixed?)
       //pageState = 1;
       //lastPageState = 0;
     }
@@ -330,13 +297,15 @@ void screenUpdate() {
     tft.fillScreen(ST77XX_BLACK);
     lastPageState = pageState;
     if (pageState == 1){
-     
-      tft.drawBitmap(0,0,chrome_r, 54, 70, ST77XX_RED);   
-      tft.drawBitmap(0,0,chrome_g, 54, 70, ST77XX_GREEN);
-      tft.drawBitmap(0,0,chrome_b, 54, 70, ST77XX_BLUE);
-      tft.drawBitmap(0,0,chrome_y, 54, 70, ST77XX_YELLOW);
 
-//      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);
+      /////////    Chrome Multi-colour example  ///////
+//      tft.drawBitmap(0,0,chrome_r, 54, 70, ST77XX_RED);   
+//      tft.drawBitmap(0,0,chrome_g, 54, 70, ST77XX_GREEN);
+//      tft.drawBitmap(0,0,chrome_b, 54, 70, ST77XX_BLUE);
+//      tft.drawBitmap(0,0,chrome_y, 54, 70, ST77XX_YELLOW);
+      /////////              END              //////////
+
+      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);  //comment out this line to use chrom mulit-colour example
       tft.drawBitmap(74,0,homes[2], 54, 70, homeColours[2]);
       tft.drawBitmap(0,90,homes[3], 54, 70, homeColours[3]);
       
@@ -357,32 +326,32 @@ void screenUpdate() {
     lastMenuState = menuState;
     tft.fillScreen(ST77XX_BLACK);
     tft.drawBitmap(0,90,homeIcon, 54, 70, ST77XX_WHITE);
-    if (menuState == 1){  //chrome
+    if (menuState == 1){  //Folder 1
       Serial.println("Menu: 1");
       tft.drawBitmap(0,0,menus[1], 54, 70, menuColours[1]);
       tft.drawBitmap(74,0,menus[2], 54, 70, menuColours[2]);
       tft.drawBitmap(74,90,menus[3], 54, 70, menuColours[3]);
-    } else if (menuState == 2){ //spotify
+    } else if (menuState == 2){ //Folder 2
       Serial.println("Menu: 2");
       tft.drawBitmap(0,0,menus[4], 54, 70, menuColours[4]);
       tft.drawBitmap(74,0,menus[5], 54, 70, menuColours[5]);
       tft.drawBitmap(74,90,menus[6], 54, 70, menuColours[6]);
-    } else if (menuState == 3){ //vs code
+    } else if (menuState == 3){ //Folder 3
       Serial.println("Menu: 3");
       tft.drawBitmap(0,0,menus[7], 54, 70, menuColours[7]);
       tft.drawBitmap(74,0,menus[8], 54, 70, menuColours[8]);
       tft.drawBitmap(74,90,menus[9], 54, 70, menuColours[9]);
-    } else if (menuState == 4){ //system
+    } else if (menuState == 4){ //Folder 4
       Serial.println("Menu: 4");
       tft.drawBitmap(0,0,menus[10], 54, 70, menuColours[10]);
       tft.drawBitmap(74,0,menus[11], 54, 70, menuColours[11]);
       tft.drawBitmap(74,90,menus[12], 54, 70, menuColours[12]);
-    } else if (menuState == 5){ //volume
+    } else if (menuState == 5){ //Folder 5
       Serial.println("Menu: 5");
       tft.drawBitmap(0,0,menus[13], 54, 70, menuColours[13]);
       tft.drawBitmap(74,0,menus[14], 54, 70, menuColours[14]);
       tft.drawBitmap(74,90,menus[15], 54, 70, menuColours[15]);
-    } else if (menuState == 6){  //Photoshop
+    } else if (menuState == 6){  //Folder 6
       Serial.println("Menu: 6");
       tft.drawBitmap(0,0,menus[16], 54, 70, menuColours[16]);
       tft.drawBitmap(74,0,menus[17], 54, 70, menuColours[17]);
@@ -390,12 +359,6 @@ void screenUpdate() {
     }
     delay(150);
   }
-
-//positions of each image outline
-//  tft.drawRect(0, 0, 54, 70, ST77XX_GREEN);   //rect 1
-//  tft.drawRect(74, 0, 54, 70, ST77XX_WHITE);   //rect 2
-//  tft.drawRect(0, 90, 54, 70, ST77XX_BLUE);   //rect 3
-//  tft.drawRect(72, 90, 54, 70, ST77XX_RED);   //rect 4
 }
   
 word ConvertRGB( byte R, byte G, byte B)
