@@ -41,7 +41,7 @@ The select & upload button will prompt the user to select an image from the file
 ## Setting Macros
 The macros are sent using the python keyboard library.
 
-If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here). To send multiple key stroked one after another seperate them with a comma. The record keystroke feature is still a work in progress but should be able to get you started.
+If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here). To send multiple key strokes one after another seperate them with a comma. The record keystroke feature is still a work in progress but should be able to get you started and give you names of keys.
 
 ## Window Switching/application setup
 One usefull feature on the open deck has is the ability to have the buttons change depending on which application is currently open as well. It can also open an app when a button on the open deck is pressed.
@@ -100,14 +100,16 @@ Spacer:
 
 ## CNC Machined Parts
 ### Carbon Fibre Top Plate
-The carbon top plate is made out of 1mm thick carbon fibre. Chamfers improve the look while allowing the countersunk screws the be flush with the surface.
+The carbon top plate is made out of 1mm thick carbon fibre.
 
 ### Acrylic Key Caps
 The 'Key Caps' are machined out of 4.5mm thick acrylic. They are all the same design.
 
 These can also be made out of 1.5mm and 3mm laser cut acrylic glued together if you do not have access to a CNC. I have found the best glue for this is UV curable glue used for some phone screen protectors.
 
-These could also potentially be SLA 3D printed from clear resin and polished to get a transparent finish.
+These could also potentially be 3D printed from clear resin and polished to get a transparent finish.
+
+As with all the custom parts these are availale for purchase from the tindie store.
 
 
 ## PCB
@@ -122,10 +124,3 @@ The PCB folder contains a zipped folder of the GERBER files required to have the
 
 <br>
 <br>
-
-# TODO:
-
->### - DEFAULT CODE (images and macros)
->### - Foam Pictures / Video
->### - Stencil
->### - Final Window Sizing
