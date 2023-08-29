@@ -18,7 +18,6 @@ An easy to use interface allows you to easily upload and set macros.
 Full Video and build guide here:
 
 # Software:
-The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
 
 ## GUI Interface
 
@@ -31,6 +30,8 @@ The Open Deck communicates with a PC over a serial USB connection. The software 
 The program is first used to upload images and set the macro's. After that it runs in the background to send keystrokes when the buttons are pressed.
 
 Note: the automatic window switching only works on windows currently
+
+The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
 
 ## Uploading Images
 The PC application makes it super easy to upload images. The files can be any size and the program does all of the conversion for you. At the moment each image can only be a single colour when uploaded through the GUI. When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. See Additional Features section for how to do images with multiple colours.
