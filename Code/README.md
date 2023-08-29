@@ -5,13 +5,6 @@
 
 
 # Software:
-The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
-
-## Note on compiling .py into .exe
-The customtkinter GUI library used requires the directory to be manually included with the <code>--add-data</code> option of pyinstaller.
-
-> See https://github.com/TomSchimansky/CustomTkinter/wiki/Packaging for more info
-
 ## Uploading Images
 The PC application makes it super easy to upload images. The files can be any size and the program does all of the conversion for you. At the moment each image can only be a single colour when uploaded through the GUI. When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. See Additional Features section for how to do images with multiple colours.
 
@@ -46,3 +39,8 @@ Note:  When uploading one of the macro images two images will be printed. The se
         
 <br>
 <br>
+
+# Notes:
+- Feel free to reach out with any question/problems and I will try to help
+- The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
+
