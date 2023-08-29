@@ -1,5 +1,6 @@
+//Custom Bitmaps:
 
-
+//Image colours are stored seperatly these are just the bitmaps
 
 
 unsigned char chrome_r [] = {

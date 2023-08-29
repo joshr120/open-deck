@@ -1,3 +1,9 @@
+///////////////////////////////
+////////  OPEN DECK   /////////
+///////////////////////////////
+
+
+
 
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7735.h> // Hardware-specific library for ST7735
@@ -18,10 +24,10 @@
 
 
 ////////////////////////////
-//   PCB SMALL BUTTONS    //
+//      PCB Pinouts       //
 ////////////////////////////
 #define TL D0
-#define BL A0 //D4!!!!!!!!!!
+#define BL A0   //Note Analog pin being used with pull up resistor as run out of digital inputs (Fix in future versions)
 #define TR D1
 #define BR D4
 
@@ -41,8 +47,10 @@ int incomingByte = 0;
 unsigned char img1 [BUFF_LEN];
 unsigned char colour [3];
 
-uint16_t homeColours [] = {0, 0xF800, 0x07E0, 0xF8FF, 0xF800, 0xF8FF, 0x07FF};
-uint16_t menuColours [] = {0, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800, 0xF800};
+//Colours stored in RBG565 format (see https://www.barth-dev.de/online/rgb565-color-picker/)
+//These are the default colours, once updated using the GUI stored and loaded in from SPIFFS
+uint16_t homeColours [] = {0, 0xF800, 0x07E0, 0x001F, 0xFC18, 0xFFE0, 0x07FF};
+uint16_t menuColours [] = {0, 0xF800, 0xF800, 0xF800, 0x07E0, 0x07E0, 0x07E0, 0x001F, 0x001F, 0x001F, 0xFC18, 0xFC18, 0xFC18, 0xFFE0, 0xFFE0, 0xFFE0, 0x07FF, 0x07FF, 0x07FF};
 
 unsigned char writeBuffer [492]; //array to store in spiffs 490 bits of the image and 2 bit on the end of the colour
 
@@ -70,7 +78,7 @@ void loop() {
 
     bool TLState = digitalRead(TL);
     bool BRState = digitalRead(BR);
-    bool TRState = digitalRead(TR);  //BL always triggers on serial opening (OLD??)
+    bool TRState = digitalRead(TR);
     int BLVal = analogRead(BL);
 
     bool BLState = (BLVal>500);

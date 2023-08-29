@@ -450,8 +450,14 @@ def imgSender(file_path, image, border, colors):
             else:
                 #turn 8 pixels into one hex number
                 binary = str(int(mono_img[y][x]))+str(int(mono_img[y][x+1]))+str(int(mono_img[y][x+2]))+str(int(mono_img[y][x+3]))+str(int(mono_img[y][x+4]))+str(int(mono_img[y][x+5]))+str(int(mono_img[y][x+6]))+str(int(mono_img[y][x+7]))
-            #print("0x{:02x},".format(int(binary,2)),end = ' ')
+            
+            #Print in format stored in arduino
+            print("0x{:02x},".format(int(binary,2)),end = ' ')
+            
             outputArray.append(int(binary,2))
+
+        #Carriage return for correct arduino array formatting
+        print("\r")
           
     #print the final image array
     #print(outputArray)
