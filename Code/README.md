@@ -26,7 +26,7 @@ Another use case for the open deck is to control smart home deviced. The ESP8266
 
 Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something such as home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device so will remain even after a power cycle and when not connected to a computer.
 
-If you want images with multiple colours these currently need to be manually entered into the arduino code. The python file called image uploader will output the correct bitmap which can be used in the arduino code. One image will needed to be made for each colour in the image. A pre-made example of this can be uncommented for a chrome logo. Final imges are 48x72 pixels stored as a bitmap. The last 3 bytes of the message sent over serial contain the RGB colour of the icon.
+If you want images with multiple colours these currently need to be manually entered into the arduino code. The bitmap in the correct format will be outputted when an image is uploaded using the source python file "full_gui.py". One image will needed to be made for each colour in the image. A pre-made example of this can be uncommented for a chrome logo. Final imges are 48x72 pixels stored as a bitmap. The last 3 bytes of the message sent over serial contain the RGB colour of the icon.
 
 Replace:
 
@@ -40,10 +40,9 @@ With:
           tft.drawBitmap(0,0,chrome_b, 54, 70, ST77XX_BLUE);
           tft.drawBitmap(0,0,chrome_y, 54, 70, ST77XX_YELLOW);
 
-Where chrome_r, chrome_g etc. are individual bitmaps of each coloured reigon stored in the bitmaps.h file. The colour of each bitmap can then manually be set (eg. ST77XX_RED)
+Where chrome_r, chrome_g etc. are individual bitmaps of each coloured reigon stored in the bitmaps.h file. The colour of each bitmap can then manually be set (eg. ST77XX_RED, (RGR565 format)) 
+
+Note:  When uploading one of the macro images two images will be printed. The second is a smaller version used for the key press effect.
         
 <br>
 <br>
-
-# TODO:
-### - Code Defaults
