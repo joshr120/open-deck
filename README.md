@@ -15,7 +15,7 @@ Open Deck is an open source macro keyboard designed to be a cheaper alternative 
 
 An easy to use interface allows you to easily upload and set macros.
 
-Full Video and build guide here:
+Full Video and build guide here: https://youtu.be/SCIMHQAToSw
 
 # Software:
 
