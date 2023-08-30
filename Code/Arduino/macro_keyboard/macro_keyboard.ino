@@ -16,9 +16,8 @@
 #include "home_bitmaps.h"
 #include "menu_bitmaps.h"
 
-#define TFT_CS     D8  //use hardware somehow?????? (D8) works with (D1)
-#define TFT_RST    D6  // you can also connect this to the Arduino reset
-                       // in which case, set this #define pin to -1!
+#define TFT_CS     D8 
+#define TFT_RST    D6  // Theoreically can set this to -1 use use arduino reset (wasnt working)
 #define TFT_DC     D2
 
 
@@ -313,7 +312,7 @@ void screenUpdate() {
 //      tft.drawBitmap(0,0,chrome_y, 54, 70, ST77XX_YELLOW);
       /////////              END              //////////
 
-      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);  //comment out this line to use chrome mulit-colour example
+      tft.drawBitmap(0,0,homes[1], 54, 70, homeColours[1]);  //comment out this line and uncomment mulit-colour example to use chrome mulit-colour example
       tft.drawBitmap(74,0,homes[2], 54, 70, homeColours[2]);
       tft.drawBitmap(0,90,homes[3], 54, 70, homeColours[3]);
       
