@@ -34,10 +34,11 @@ val = b''
 
 prevPort = "Select"
 
+#Defaults, New values are stored in data.pk
 switchStates = ["off", "on", "on", "on"]
 
-customtkinter.set_appearance_mode("dark")  # Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("blue") 
 
 BUTTON_OPTIONS = ["Menu 1", "Menu 2", "Menu 3", "Menu 4", "Menu 5", "Menu 6", "Menu 7", "Menu 8", "Menu 9", "Menu 10", "Menu 11", "Menu 12", "Menu 13", "Menu 14", "Menu 15", "Menu 16", "Menu 17", "Menu 18"]
 
@@ -49,6 +50,7 @@ OPTIONS = [ "Home 1","Home 2","Home 3","Home 4","Home 5","Home 6","Menu 1","Menu
 name_dict = { "Home 1": b'home_1\n',"Home 2": b'home_2\n',"Home 3": b'home_3\n',"Home 4": b'home_4\n',"Home 5": b'home_5\n',"Home 6": b'home_6\n',"Menu 1": b'menu_1\n',"Menu 2": b'menu_2\n',"Menu 3": b'menu_3\n',"Menu 4": b'menu_4\n',"Menu 5": b'menu_5\n',"Menu 6": b'menu_6\n',"Menu 7": b'menu_7\n',"Menu 8": b'menu_8\n',"Menu 9": b'menu_9\n',"Menu 10": b'menu_10\n',"Menu 11": b'menu_11\n',"Menu 12": b'menu_12\n',"Menu 13": b'menu_13\n',"Menu 14": b'menu_14\n',"Menu 15": b'menu_15\n',"Menu 16": b'menu_16\n',"Menu 17": b'menu_17\n',"Menu 18": b'menu_18\n'}
 
 
+#Defaults, New values are stored in data.pk
 key_dict = {
 1: [['alt+left'], "Back"],
 2: [['alt+right'], "Forwards"],
@@ -65,13 +67,12 @@ key_dict = {
 13:[['ctrl+r'], "Mid Rect"],
 14:[['ctrl+a'], "Arc"],
 15:[['ctrl+f'], "Chamfer"],
-
 16:[['ctrl+r'], "Verify"],
 17:[['ctrl+s', 'ctrl+u'], "Upload"],
 18:[['ctrl+shift+m'], "Serial Monitor"],
 }
 
-
+#Defaults, New values are stored in data.pk
 app_dict = {
 1: "Chrome",
 2: "",
