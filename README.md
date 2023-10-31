@@ -17,6 +17,10 @@ An easy to use interface allows you to easily upload and set macros.
 
 Full Video and build guide here: https://youtu.be/SCIMHQAToSw
 
+Thanks to PCBWay for their support on this project, the PCB's can be ordered directly from them by uploading the provided Gerbers. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
+
+An anodised aluminium housing will be avaible soon also courtesy of [PCBWay](https://pcbway.com/g/heg1oh) 
+
 # Software:
 
 ## GUI Interface
@@ -113,7 +117,9 @@ As with all the custom parts these are availale for purchase from the tindie sto
 
 
 ## PCB
-The PCB folder contains a zipped folder of the GERBER files required to have the PCB manufactured.
+The PCB folder contains a zipped folder of the GERBER files required to have the PCB manufactured. 
+
+Support the project and order them here: [PCBWay.com](https://pcbway.com/g/heg1oh).
 
 # Additional Features:
 - If you want images with multiple colours these currently need to be manually entered into the arduino code. See the README in the Code folder for more info.
