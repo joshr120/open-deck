@@ -11,7 +11,6 @@
 #include <SPI.h>
 
 #include <FS.h> //for saving in spiffs
-
 #include "bitmap.h"
 #include "home_bitmaps.h"
 #include "menu_bitmaps.h"

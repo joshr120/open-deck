@@ -88,7 +88,7 @@ app.title("Macro Keyboard Configure")
 
 
 ##################################
-#   Constantly refresh ports        #will chnage selection if current port no longer available as well as auto detect if no current port is currently selected
+#   Constantly refresh ports        #will change selection if current port no longer available as well as auto detect if no current port is currently selected
 ##################################
 def updatePorts():
     global ser
