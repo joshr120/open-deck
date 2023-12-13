@@ -19,7 +19,9 @@ Full Video and build guide here: https://youtu.be/SCIMHQAToSw
 
 Thanks to PCBWay for their support on this project, the PCB's can be ordered directly from them by uploading the provided Gerbers. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
 
-An anodised aluminium housing will be avaible soon also courtesy of [PCBWay](https://pcbway.com/g/heg1oh) 
+The anodised aluminium parts for the custom aluminium version can be purchased from [PCBWay](https://pcbway.com/g/heg1oh) using the files in the "aluminium version" folder.
+
+The aluminium version can be seen in this video: https://youtu.be/J708yBPJkeE
 
 # Software:
 
