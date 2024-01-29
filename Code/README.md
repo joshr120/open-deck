@@ -16,6 +16,8 @@ When a key is pressed it sends a correlated number (1-16) over serial to the pro
 ## MQTT
 Thanks to the WiFi enable esp8266 chip the Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
 
+This version of the code also allows the orientation to be changed so that the cable can come out of the bottom and the display can tilt slightly upwares for wall mounting.
+
 A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
 
 Images can easily be uploaded using the GUI and will be saved localy on the Open Deck.
