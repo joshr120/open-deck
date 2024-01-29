@@ -13,7 +13,7 @@ All of the code running on the ESP8266 on the Open Deck itself is using arduino.
 
 When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
-#MQTT
+## MQTT
 Thanks to the WiFi enable esp8266 chip the Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
 
 A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
