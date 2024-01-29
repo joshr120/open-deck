@@ -13,12 +13,16 @@ All of the code running on the ESP8266 on the Open Deck itself is using arduino.
 
 When a key is pressed it sends a correlated number (1-16) over serial to the program running on the computer. 
 
+#MQTT
+Thanks to the WiFi enable esp8266 chip the Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
+
+A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
+
+Images can easily be uploaded using the GUI and will be saved localy on the Open Deck.
+
+In the future I would like to integrate this setup into the GUI so you do not need to re-flash any firmware.
 
 # Additional Features:
-Another use case for the open deck is to control smart home deviced. The ESP8266 is a common wifi chip and could be setup for automations without needing to be connected to a host computer. 
-
-Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something such as home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device so will remain even after a power cycle and when not connected to a computer.
-
 If you want images with multiple colours these currently need to be manually entered into the arduino code. The bitmap in the correct format will be outputted when an image is uploaded using the source python file "full_gui.py". One image will needed to be made for each colour in the image. A pre-made example of this can be uncommented for a chrome logo. Final imges are 48x72 pixels stored as a bitmap. The last 3 bytes of the message sent over serial contain the RGB colour of the icon.
 
 Replace:
