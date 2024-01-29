@@ -15,6 +15,8 @@ Open Deck is an open source macro keyboard designed to be a cheaper alternative 
 
 An easy to use interface allows you to easily upload and set macros.
 
+MQTT Support to interface with home assistant.
+
 Full Video and build guide here: https://youtu.be/SCIMHQAToSw
 
 Thanks to PCBWay for their support on this project, the PCB's can be ordered directly from them by uploading the provided Gerbers. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
@@ -84,6 +86,16 @@ Things of Note:
 - Low Profile M2 Screws used for clearance (Length is critical)
 
 
+## Smart Home Control With MQTT:
+The Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
+
+A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
+
+Images can easily be uploaded using the GUI and will be saved localy on the Open Deck.
+
+In the future I would like to integrate this setup into the GUI so you do not need to re-flash any firmware.
+
+
 ## 3D Printed Parts
 All parts can be printed with no supports. Print in the orientation shown below:
 
@@ -125,10 +137,6 @@ Support the project and order them here: [PCBWay.com](https://pcbway.com/g/heg1o
 
 # Additional Features:
 - If you want images with multiple colours these currently need to be manually entered into the arduino code. See the README in the Code folder for more info.
-
-- Another use case for the open deck is to control smart home devices. The ESP8266 is a common WiFi chip and could be setup for controlling without needing to be physically connected to a host computer. 
-
-  Currently no example code for this but simply change the serial write commands in the arduino program to send a comand with your favourite service such as MQTT. This can then be integrated with something like home assistant. Images can still be uploaded with the GUI interface and are stored locally on the device in non-volatile memory so will remain even after a power cycle.
 
 <br>
 <br>
