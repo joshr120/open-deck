@@ -72,6 +72,15 @@ When a key is pressed it sends a correlated number (1-16) over serial to the pro
 If you purchase a pre-made Open Deck it will come flashed with the default firmware and you will not need to touch any arduino code or install any libraries. 
 > For more info on the software see the README in the Code folder
 
+## Smart Home Control With MQTT:
+The Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
+
+A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
+
+Images can easily be uploaded using the GUI and will be saved localy on the Open Deck.
+
+In the future I would like to integrate this setup into the GUI so you do not need to re-flash any firmware.
+
 # Hardware
 See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: **https://www.tindie.com/products/27756/**
 
@@ -84,16 +93,6 @@ Things of Note:
 - An ESP8266 is being used as the micro-controller as it is small, low cost, has enough flash memory to store all of the images as well as having WiFi to allow for additional features. Importantly for everything to fit this needs to be a WEMOS D1 Mini V4 with a USB-C Connector
 
 - Low Profile M2 Screws used for clearance (Length is critical)
-
-
-## Smart Home Control With MQTT:
-The Open Deck can also be used as a smart home controller using MQTT. This can easily interface with home assitant without the Open-Deck only needing to be plugged in for power. Upload the example MQTT arduino sketch onto the Open Deck and enter your credentials in the code. 
-
-A number 1-16 will be sent to the topic ```open_deck/buttons``` whenever the button is pressed.
-
-Images can easily be uploaded using the GUI and will be saved localy on the Open Deck.
-
-In the future I would like to integrate this setup into the GUI so you do not need to re-flash any firmware.
 
 
 ## 3D Printed Parts
