@@ -1,4 +1,3 @@
-from imaplib import Commands
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
@@ -14,7 +13,7 @@ import time
 
 import pickle
 
-import pygetwindow as gw #for window switching (windows only)
+import pywinctl as gw # hopefully sufficient support for win, macos, and linux
 
 import numpy as np
 import cv2
@@ -83,7 +82,7 @@ app_dict = {
 }
  
 app = customtkinter.CTk()
-app.geometry("800x900")
+app.geometry("800x1200")
 app.title("Macro Keyboard Configure")
 
 
@@ -119,12 +118,13 @@ def updatePorts():
             ser = serial.Serial(portSelect.get(), baudSelect.get())  #let user choose in future
             ser.timeout = 0.5
             connectLabel.configure(text="Connected", text_color="green")
-        except:
+        except Exception as e:
+            print(e)
             connectLabel.configure(text="Not Connected", text_color="red")
 
 def detectPort(ports):
     for port, desc, hwid in sorted(ports):
-        if ("USB-SERIAL CH340" in desc):
+        if ("USB-SERIAL CH340" in desc or hwid.startswith("USB VID:PID=1A86:7523")):
             print("Auto Detect:")
             print(port)
             portSelect.set(port)
@@ -228,7 +228,7 @@ def macro_record():
 
 def connectSwitchChange():
     if (connectSwitch.get() =="on"):
-        detectPort()
+        detectPort(serial.tools.list_ports.comports())
     switchChange()
 
 def switchChange():
