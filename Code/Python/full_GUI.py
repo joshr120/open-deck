@@ -116,7 +116,7 @@ def updatePorts():
         prevPort = portSelect.get()
         try:
             #check to see if already open first?????
-            ser = serial.Serial(portSelect.get(), baudSelect.get())  #let user choose in future
+            ser = serial.Serial((portSelect.get()).split(':', 1)[0], baudSelect.get())  #let user choose in future
             ser.timeout = 0.5
             connectLabel.configure(text="Connected", text_color="green")
         except:
@@ -124,7 +124,11 @@ def updatePorts():
 
 def detectPort(ports):
     for port, desc, hwid in sorted(ports):
-        if ("USB-SERIAL CH340" in desc):
+        if ("USB-SERIAL CH340" in desc): #format device will appear as on windows
+            print("Auto Detect:")
+            print(port)
+            portSelect.set(port)
+        elif ("USB Serial" in desc): #format device will appear as on macOS
             print("Auto Detect:")
             print(port)
             portSelect.set(port)
@@ -227,9 +231,9 @@ def macro_record():
     macroEntry.insert(0,combo)
 
 def connectSwitchChange():
-    if (connectSwitch.get() =="on"):
-        detectPort()
     switchChange()
+    if (connectSwitch.get() =="on"):
+        detectPort(ports)
 
 def switchChange():
     switchStates[0] = switch_1.get()
