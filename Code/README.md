@@ -49,4 +49,5 @@ Note:  When uploading one of the macro images two images will be printed. The se
 # Notes:
 - Feel free to reach out with any question/problems and I will try to help
 - The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
+- For use with MacOS you may need to install the FTDI drivers from [here](https://ftdichip.com/Drivers/vcp-drivers/)
 

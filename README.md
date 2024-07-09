@@ -19,7 +19,7 @@ MQTT Support to interface with home assistant.
 
 Full Video and build guide here: https://youtu.be/SCIMHQAToSw
 
-Thanks to PCBWay for their support on this project, the PCB's can be ordered directly from them by uploading the provided Gerbers. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
+Thanks to PCBWay for their support on this project. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
 
 The anodised aluminium parts for the custom aluminium version can be purchased from [PCBWay](https://pcbway.com/g/heg1oh) using the files in the "aluminium version" folder.
 
@@ -31,15 +31,13 @@ The aluminium version can be seen in this video: https://youtu.be/J708yBPJkeE
 
 <img src="Images/gui.jpg" width="400">
 
-Provided is a compiled .exe program as well as all the source code (written in python). Extract the zipped folder and run the .exe, no python libary installs required.
+Provided is a pre-compiled program for windows and mac as well as all the source code (written in python). Extract the zipped folder and run the .exe (or mac equivalent), no python libary installs required.
 
 The Open Deck communicates with a PC over a serial USB connection. The software can automatically detect and connect to the Open Deck when it is plugged in.
 
 The program is first used to upload images and set the macro's. After that it runs in the background to send keystrokes when the buttons are pressed.
 
-Note: the automatic window switching only works on windows currently
-
-The sofware is still evolving and I am by no means a software engineer but I have been using it everyday for over 6 months without an major issues.
+Note: the automatic window switching only works on windows currently and the macOS pre-compiled GUI has only been tested on macOS Big Sur 11.6
 
 ## Uploading Images
 The PC application makes it super easy to upload images. The files can be any size and the program does all of the conversion for you. At the moment each image can only be a single colour when uploaded through the GUI. When uploading an image the black part of the image will be shown in the chosen colour and the rest will be black. See Additional Features section for how to do images with multiple colours.
