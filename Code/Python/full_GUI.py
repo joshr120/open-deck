@@ -9,7 +9,9 @@ import serial
 import serial.tools.list_ports
 import math
 
-import keyboard
+# import keyboard
+from pynput.keyboard import Listener, Controller, Key, KeyCode  #replaces keyboard library (WIP)
+
 import time
 
 import pickle
@@ -20,8 +22,6 @@ import numpy as np
 import cv2
 
 from threading import *
-
-# import matplotlib.pyplot as plt
 
 # open a pickle file
 filename = 'data.pk'  #pickle file to save the data
@@ -52,24 +52,24 @@ name_dict = { "Home 1": b'home_1\n',"Home 2": b'home_2\n',"Home 3": b'home_3\n',
 
 #Defaults, New values are stored in data.pk
 key_dict = {
-1: [['alt+left'], "Back"],
-2: [['alt+right'], "Forwards"],
-3: [['ctrl+r'], "Reload"],
-4: [['previous track'], "Prev Track"],
-5: [['next track'], "Next Track"],
-6: [['play/pause media'], "pause"],
-7: [['ctrl+s', 'ctrl+alt+n'], "Run"],
-8: [['ctrl+alt+m'], "Stop"],
-9: [['ctrl+s'], "Save"],
-10:[['ctrl+shift+esc'], "Task Manager"],
-11:[['alt+tab'], "alt tab"],
-12:[['windows+shift+s'], "Snipping Tool"],
-13:[['ctrl+r'], "Mid Rect"],
-14:[['ctrl+a'], "Arc"],
-15:[['ctrl+f'], "Chamfer"],
-16:[['ctrl+r'], "Verify"],
-17:[['ctrl+s', 'ctrl+u'], "Upload"],
-18:[['ctrl+shift+m'], "Serial Monitor"],
+1: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+2: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+3: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+4: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+5: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+6: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+7: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+8: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+9: ["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+10:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+11:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+12:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+13:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+14:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+15:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+16:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+17:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
+18:["('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')", "Description"],
 }
 
 #Defaults, New values are stored in data.pk
@@ -151,20 +151,13 @@ def pickleData():
 ##################################
 #     GUI callbacks
 ##################################
-#macro update button
+#macro update button (convert from string into list)
 def macro_update():
     buttonNum = int(macroCombobox.get()[5:])
     key_dict[buttonNum][1] = nameEntry.get()
     entry = macroEntry.get()
-    commands = entry.split(",")
-    finalCommands = []
-    for command in commands:
-        command.strip() 
-        #command.replace(" ", "") #remove any white spaces (actually still need this for next track)
-        if (command != ""):
-            finalCommands.append(command)
-    key_dict[buttonNum][0] = finalCommands
-    print("Button click", macroCombobox.get())
+
+    key_dict[buttonNum][0] = entry
 
     pickleData() #call function to pickle data
 
@@ -172,63 +165,64 @@ def macro_update():
 def app_update():
     appNum = int(appCombobox.get()[4:])
     app_dict[appNum] = appEntry.get()  #update app name in dict
-    print("Button click", appCombobox.get())
+    # print("Button click", appCombobox.get())
     pickleData() #call function to pickle data
 
 #button dropdown changed
 def macroCombobox_callback(choice):
     print("combobox dropdown clicked:", choice)
     num = int(choice[5:])
-    print(num)
+    # print(num)
     macroEntry.delete(0,'end')
-    if (len(key_dict[num][0])>1):
-        count = 0
-        for item in key_dict[num][0]:
-            count += 1
-            item.replace("{", "") #remove any weird brackets added?
-            item.replace("}", "") #remove any weird brackets added?
-            macroEntry.insert('end',item)
-            if (count < len(key_dict[num][0])):
-                macroEntry.insert('end',', ')
-    else:
-        macroEntry.insert(0,key_dict[num][0])
+    macroEntry.insert(0,key_dict[num][0])
     nameEntry.delete(0,'end')
     nameEntry.insert(0,key_dict[num][1])
     appCombobox.set("App "+str(math.ceil(num/3)))
 
 #app dropdown changed
 def appCombobox_Callback(choice):
-    print("combobox dropdown clicked:", choice)
+    # print("combobox dropdown clicked:", choice)
     num = int(choice[4:])
 
     butNumLabel.configure(text=("Buttons " + str(num*3-2) + ", " + str(num*3-1) + ", "+ str(num*3)))
     appEntry.delete(0,'end')
     appEntry.insert(0,app_dict[num])
 
-#function to record key presses
+#function to record key presses and put into text box
+key_string = '' #need to sort out better variable ahndling than this being a global (or just add into text box as you go)
 def macro_record():
     print("Recording Keys") #change button colour while recording
     recButton.configure(state=tkinter.DISABLED)
-    keyboard.start_recording()
-    time.sleep(5)
-    events = keyboard.stop_recording()
-    count = 0 #add 1 for every down if down = up then add comma
-    combo = ""
-    lastEvent = None
-    for event in events:
-        if (event != lastEvent):
-            if (event.event_type == "down"):
-                combo += event.name + "+"
-            elif (event.event_type == "up"):
-                combo = combo[:len(combo)-1] #remove + for, if end of a combo
-                combo += ","
-        lastEvent = event
-    #combo.strip()
-    combo = combo[:len(combo)-1] #remove last comma and space (not sure how it removes all?)
-    print(combo)
+
+    global key_string
+
+    key_string = ''
+
+    def on_press(key):
+        global key_string
+        try:
+            key_string += ("('down', '{0}'), ".format(key.char))
+        except AttributeError:
+            key_string += ("('down', {0}), ".format(key))
+
+    def on_release(key):
+        global key_string
+        try:
+            key_string += ("('up', '{0}'), ".format(key.char))
+        except AttributeError:
+            key_string += ("('up', {0}), ".format(key))
+
+
+    with Listener(on_press=on_press, on_release=on_release, suppress=True) as listener:
+        time.sleep(5)
+        listener.stop()
+
+    key_string = key_string[:-2] #remove ", " from end of string
+    # print("Key string:", key_string)
+
     recButton.configure(state=tkinter.NORMAL)
-    macroEntry.delete(0,'end')
-    macroEntry.insert(0,combo)
+    macroEntry.delete(0,'end') #clear text box
+    macroEntry.insert(0,key_string)  #enter in recorded keystrokes instead 
 
 def connectSwitchChange():
     switchChange()
@@ -306,9 +300,21 @@ def runMacros():
                             except:
                                 print("Failed to bring window to front")
                         print(key_dict[receive][1])
-                        for command in key_dict[receive][0]:  #loop through commands in list (or single command)
-                            keyboard.press_and_release(command)
-                            time.sleep(0.1)
+
+                        # for command in key_dict[receive][0]:  #loop through commands in list (or single command)
+                        #     # keyboard.press_and_release(command)
+                        #     keyboard2.press(command)
+                        #     keyboard2.release(command)
+                        #     time.sleep(0.1)
+
+                        keyboard = Controller()
+                        for action, key in eval(key_dict[receive][0]):
+                            if action == 'down':
+                                keyboard.press(key)
+                            elif action == 'up':
+                                keyboard.release(key)
+                            time.sleep(0.05)  # Adjust as needed to simulate realistic typing speed 
+
                 except:  #error decoding result
                     print("Error Decoding Line")  
                     ser.close() #try restart serial port
@@ -590,11 +596,13 @@ topLabel = customtkinter.CTkLabel(master=frame_2, justify=tkinter.LEFT, text="Ma
 topLabel.grid(row=4, column=1, columnspan=1, padx=10, pady=0, sticky="ew")
 macroEntry = customtkinter.CTkEntry(master=frame_2)
 macroEntry.grid(row=5, column=1, columnspan=1, padx=10, pady=(0,0), sticky="ew")
-if (len(key_dict[1][0])>1):
-    for item in key_dict[1][0]:
-        macroEntry.insert(0,(item+','))
-else:
-    macroEntry.insert(0,key_dict[1][0])
+# if (len(key_dict[1][0])>1):
+#     for item in key_dict[1][0]:
+#         macroEntry.insert(0,(item+','))
+# else:
+#     macroEntry.insert(0,key_dict[1][0])
+macroEntry.insert(0,key_dict[1][0])
+
 recButton = customtkinter.CTkButton(master=frame_2, command=macro_record, text="Record Keys (5 Sec)")
 recButton.grid(row=6, column=1, columnspan=1, padx=10, pady=(10,20), sticky="ew")
 

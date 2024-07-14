@@ -45,9 +45,16 @@ The PC application makes it super easy to upload images. The files can be any si
 The select & upload button will prompt the user to select an image from the file system as well as choose a colour from a colour picker.
 
 ## Setting Macros
-The macros are sent using the python keyboard library.
+The macros are sent using the python [pynput library] (https://pynput.readthedocs.io/en/latest/keyboard.html#controlling-the-keyboard). (Previous version used the python keyboard library but this had limitations)
 
-If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here). To send multiple key strokes one after another seperate them with a comma. The record keystroke feature is still a work in progress but should be able to get you started and give you names of keys.
+If more complex macros are required I recommend setting it to some unused combination and then remapping this combination using something like auto hot key. (Not going to try re-invent the wheel here). Easier way to figure out the format or key names is to use the record keys button in the GUI and look at what is entered in the text box. For example the following input will output "test" when the macro is triggered:
+
+<code>('down', 't'), ('up', 't'), ('down', 'e'), ('up', 'e'), ('down', 's'), ('up', 's'), ('down', 't'), ('up', 't')</code>
+
+
+To do key combinations such as "control+shift" it would look like this:
+
+<code>('down', Key.ctrl), ('down', Key.ctrl), ('down', Key.ctrl), ('down', 's'), ('up', 's'), ('up', Key.ctrl)</code> 
 
 ## Window Switching/application setup
 One usefull feature on the open deck has is the ability to have the buttons change depending on which application is currently open as well. It can also open an app when a button on the open deck is pressed.
