@@ -3,7 +3,7 @@
 
 # Open Deck
 
-## Parts and fully assembled units can be purchased Here: https://www.tindie.com/products/27756/  
+## Parts and fully assembled units can be purchased Here: [https://thingsbyjosh.com/products/open-deck-macro-keyboard](https://thingsbyjosh.com/products/open-deck-macro-keyboard)  
 <br>
 
 
@@ -18,12 +18,6 @@ An easy to use interface allows you to easily upload and set macros.
 MQTT Support to interface with home assistant.
 
 Full Video and build guide here: https://youtu.be/SCIMHQAToSw
-
-Thanks to PCBWay for their support on this project. Check them out and support the project here: [PCBWay](https://pcbway.com/g/heg1oh)
-
-The anodised aluminium parts for the custom aluminium version can be purchased from [PCBWay](https://pcbway.com/g/heg1oh) using the files in the "aluminium version" folder.
-
-The aluminium version can be seen in this video: https://youtu.be/J708yBPJkeE
 
 # Software:
 
@@ -87,9 +81,9 @@ Images can easily be uploaded using the GUI and will be saved localy on the Open
 In the future I would like to integrate this setup into the GUI so you do not need to re-flash any firmware.
 
 # Hardware
-See the BOM for a full list of all of the required components. Visit my tindie store to support the project by buying parts or a full unit: **https://www.tindie.com/products/27756/**
+See the BOM for a full list of all of the required components. And support the project by buying parts or a full unit [here](https://thingsbyjosh.com/products/open-deck-macro-keyboard)
 
-> If there is a particular item or set of items you would like to buy feel free to send me a message on Tindie.
+> If there is a particular item or set of items you would like to buy feel free to send me an email to [info@thingsbyjosh.com](info@thingsbyjosh.com).
 
 Things of Note:
 
@@ -131,13 +125,13 @@ These can also be made out of 1.5mm and 3mm laser cut acrylic glued together if 
 
 These could also potentially be 3D printed from clear resin and polished to get a transparent finish.
 
-As with all the custom parts these are availale for purchase from the tindie store.
+As with all the custom parts these are availale for purchase from [my store](https://thingsbyjosh.com/products/open-deck-macro-keyboard).
 
 
 ## PCB
 The PCB folder contains a zipped folder of the GERBER files required to have the PCB manufactured. 
 
-Support the project and order them here: [PCBWay.com](https://pcbway.com/g/heg1oh).
+If you want to order them yourself you can support the project and order them here: [PCBWay.com](https://pcbway.com/g/heg1oh).
 
 # Additional Features:
 - If you want images with multiple colours these currently need to be manually entered into the arduino code. See the README in the Code folder for more info.
